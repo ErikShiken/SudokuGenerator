@@ -1,15 +1,23 @@
 import junit.framework.*;
 
 public class GridFactoryTest extends TestCase {
-    protected void setUp()
+    @Test
+    public void testRowSizeIsNine()
     {
-        grid = cut.getGrid();
+        int size = 9;
+        grid = cut.makeGrid(size);
+        assert(grid.rowSize() == size);
     }
 
-    public void testRowSize()
+    @Test
+    public void testColSizeIsNine()
     {
-
+        int size = 9;
+        grid = cut.makeGrid(size);
+        assert(grid.columnSize() == size);
     }
+
+    // cut = class under test
     private final GridFactory cut = new GridFactory();
     private final Grid grid;
 }
